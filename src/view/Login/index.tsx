@@ -30,9 +30,7 @@ export default function Login(): JSX.Element {
 
   return (
     <>
-      {JSON.parse(localStorage.getItem('tokenPortfolio') || 'false').tokenPortfolio && (
-        <Redirect to="painelcontroll"></Redirect>
-      )}
+      {JSON.parse(localStorage.getItem('tokenPortfolio') || 'false') && <Redirect to="painelcontroll"></Redirect>}
       {getLogado && <Redirect to="painelcontroll"></Redirect>}
       <Container>
         <Header></Header>
