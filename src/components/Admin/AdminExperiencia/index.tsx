@@ -6,11 +6,18 @@ import api from '../../../services/api';
 import { Container } from './styles';
 
 export default function AdminExperiencia(props: ExperienciaAPI): JSX.Element {
-  const [getExperiencia, setExperiencia]: [Experiencia[] | undefined, (param: any) => any] = useState();
+  const [getExperiencia, setExperiencia]: [Experiencia | undefined, (param: any) => any] = useState();
 
-  const experiencias = getExperiencia?.map((element, index, array) => {
-    return (
-      <>
+  useEffect(() => {
+    setExperiencia(props.experiencias);
+  }, [props.experiencias]);
+
+  return (
+    <Container id="sec2">
+      <h1>
+        <i className="fas fa-address-book"></i>Experiencia
+      </h1>
+      <section className="xp">
         <div className="local">
           <form action="" method="post">
             <br />
@@ -20,12 +27,12 @@ export default function AdminExperiencia(props: ExperienciaAPI): JSX.Element {
                 id=""
                 cols={90}
                 rows={10}
-                value={getExperiencia[index].descExperiencia}
-                placeholder={getExperiencia[index].descExperiencia}
+                value={getExperiencia?.descExperiencia}
+                placeholder={getExperiencia?.descExperiencia}
                 onChange={(e) => {
-                  const newExperiencia = [...getExperiencia];
-                  newExperiencia[index].descExperiencia = e.target.value;
-                  setExperiencia([...newExperiencia]);
+                  const newExperiencia = { ...getExperiencia };
+                  newExperiencia.descExperiencia = e.target.value;
+                  setExperiencia(newExperiencia);
                 }}
               ></textarea>
               <button
@@ -33,8 +40,8 @@ export default function AdminExperiencia(props: ExperienciaAPI): JSX.Element {
                 onClick={(e) => {
                   api
                     .put(
-                      `/experiencia/?id=${getExperiencia[index].id}`,
-                      { descExperiencia: getExperiencia[index].descExperiencia },
+                      `/experiencia/?id=${getExperiencia?.id}`,
+                      { descExperiencia: getExperiencia?.descExperiencia },
                       {
                         headers: {
                           Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
@@ -56,23 +63,6 @@ export default function AdminExperiencia(props: ExperienciaAPI): JSX.Element {
             </div>
           </form>
         </div>
-      </>
-    );
-  });
-
-  useEffect(() => {
-    setExperiencia(props.experiencias);
-  }, [getExperiencia, props.experiencias]);
-
-  return (
-    <Container id="sec2">
-      <h1>
-        <i className="fas fa-address-book"></i>Experiencia
-      </h1>
-      <section className="xp">
-        {React.Children.map(experiencias, (element) => {
-          return React.cloneElement(element as React.ReactElement);
-        })}
       </section>
     </Container>
   );

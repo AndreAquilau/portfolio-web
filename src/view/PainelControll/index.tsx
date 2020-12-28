@@ -62,7 +62,7 @@ export default function PainelControll(): JSX.Element {
     api
       .get('/experiencia')
       .then((response) => {
-        setExperiencia(response.data.experiencias);
+        setExperiencia(response.data.experiencias[0]);
       })
       .catch((err) => {
         alert(`Error get portfolio ${err.message}`);

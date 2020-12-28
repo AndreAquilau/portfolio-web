@@ -6,9 +6,6 @@ export const Container = styled.section`
   box-sizing: border-box;
   margin-top: 5%;
 
-  -webkit-animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-
   button {
     border: none;
     outline: none;
@@ -80,35 +77,6 @@ export const Container = styled.section`
           transform: translateY(10px);
         }
       }
-    }
-  }
-
-  @-webkit-keyframes scale-in-center {
-    0% {
-      -webkit-transform: scale(0);
-      transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-  .btn-delete {
-    transform: scale(0.7) translateY(5px);
-  }
-
-  @keyframes scale-in-center {
-    0% {
-      -webkit-transform: scale(0);
-      transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      opacity: 1;
     }
   }
 `;

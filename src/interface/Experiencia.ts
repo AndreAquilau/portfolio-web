@@ -10,6 +10,6 @@ export type Experiencia = {
 };
 
 export default interface ExperienciaAPI extends Props<any> {
-  experiencias?: Experiencia[];
+  experiencias?: Experiencia;
   updateComponent: (param?: any) => any;
 }
