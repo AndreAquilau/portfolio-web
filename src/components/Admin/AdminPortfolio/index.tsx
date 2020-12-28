@@ -14,8 +14,12 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
   const [getTypeDocument, setTypeDocument] = useState(
     '.doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
   );
-  const token = process.env.TOKEN;
 
+  useEffect(() => {
+    setTitulo(props.portfolio?.titulo || '');
+    setSubtitulo(props.portfolio?.subtitulo || '');
+    setSobre(props.portfolio?.sobre || '');
+  }, [props.portfolio]);
   return (
     <Container className="about-admin">
       <div className="portfolio-photo_admin">
