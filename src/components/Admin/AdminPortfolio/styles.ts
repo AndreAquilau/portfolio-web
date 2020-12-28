@@ -26,18 +26,10 @@ export const Container = styled.section`
         border-radius: 150px;
         width: 130px;
         height: 130px;
-
-        -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        animation-delay: 1s;
       }
     }
     .bts-container_admin {
       display: flex;
-
-      -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-      animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-      animation-delay: 1.2s;
     }
     .bts-admin {
       display: flex;
@@ -48,10 +40,6 @@ export const Container = styled.section`
         margin-top: auto;
         width: 25px;
         height: 25px;
-
-        -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        animation-delay: 1s;
       }
     }
   }
@@ -61,9 +49,7 @@ export const Container = styled.section`
     font-size: 20px;
     margin-top: 2%;
     margin-bottom: 2%;
-    -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    animation-delay: 1.4s;
+
     img {
       width: 30px;
       height: 30px;
