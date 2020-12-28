@@ -54,6 +54,10 @@ export const Container = styled.section`
     margin-top: 5%;
     margin-bottom: 5%;
     font-size: 25px;
+    img {
+      width: 50px;
+      height: 50px;
+    }
     a {
       text-decoration: none;
       color: black;
