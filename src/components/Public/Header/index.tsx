@@ -29,7 +29,7 @@ export default function Header(): JSX.Element {
           }
           <li>
             {
-              JSON.parse(localStorage.getItem('tokenPortfolio') || '') ?
+              JSON.parse(localStorage.getItem('tokenPortfolio') || '{"tokenPortfolio": false}') ?
               <Link to="/login" onClick={(e) => {
                 localStorage.setItem('tokenPortfolio', JSON.stringify(false));
               }}>Logout</Link> : <Link to="/login">Login</Link>}

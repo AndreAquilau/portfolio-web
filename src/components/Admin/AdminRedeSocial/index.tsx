@@ -65,7 +65,7 @@ export default function AdminRedeSocial(props: RedeSocialAPI): JSX.Element {
                 api
                   .put(`/redesocial/icon/?id=${object.id}`, getIcon, {
                     headers: {
-                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                       'Content-Type': 'multipart/form-data',
                     },
                   })
@@ -82,7 +82,7 @@ export default function AdminRedeSocial(props: RedeSocialAPI): JSX.Element {
                     { link: getLinks[index].link },
                     {
                       headers: {
-                        Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                        Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                       },
                     },
                   )
@@ -106,7 +106,7 @@ export default function AdminRedeSocial(props: RedeSocialAPI): JSX.Element {
                 api
                   .delete(`/redesocial/?id=${object.id}`, {
                     headers: {
-                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                       'Content-Type': 'multipart/form-data',
                     },
                   })

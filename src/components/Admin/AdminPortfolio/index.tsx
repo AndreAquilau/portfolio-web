@@ -50,7 +50,7 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
                 api
                   .put(`/portfolio/photo/?id=${props.portfolio?.id}`, getPhoto, {
                     headers: {
-                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                       'Content-Type': 'multipart/form-data',
                     },
                   })
@@ -94,7 +94,7 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
                     { titulo: getTitulo },
                     {
                       headers: {
-                        Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                        Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                       },
                     },
                   )
@@ -138,7 +138,7 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
                     { subtitulo: getSubtitulo },
                     {
                       headers: {
-                        Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                        Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                       },
                     },
                   )
@@ -183,7 +183,7 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
                       { sobre: getSobre },
                       {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                         },
                       },
                     )
@@ -233,7 +233,7 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
                     api
                       .put(`/portfolio/document/?id=${props.portfolio?.id}`, getDocument, {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                           'Content-Type': 'multipart/form-data',
                         },
                       })

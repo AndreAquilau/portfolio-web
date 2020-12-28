@@ -7,7 +7,6 @@ import { Container } from './styles';
 
 export default function AdminExperiencia(props: ExperienciaAPI): JSX.Element {
   const [getExperiencia, setExperiencia]: [Experiencia[] | undefined, (param: any) => any] = useState();
-  const token = process.env.TOKEN;
 
   const experiencias = getExperiencia?.map((element, index, array) => {
     return (
@@ -38,7 +37,7 @@ export default function AdminExperiencia(props: ExperienciaAPI): JSX.Element {
                       { descExperiencia: getExperiencia[index].descExperiencia },
                       {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                         },
                       },
                     )

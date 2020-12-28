@@ -82,7 +82,7 @@ export default function PainelControll(): JSX.Element {
 
   return (
     <>
-      {!JSON.parse(localStorage.getItem('tokenPortfolio') || '') && <Redirect to="/login"></Redirect>}
+      {!JSON.parse(localStorage.getItem('tokenPortfolio') || 'false') && <Redirect to="/login"></Redirect>}
       <Container>
         <Header></Header>
         <SectionAdmin>

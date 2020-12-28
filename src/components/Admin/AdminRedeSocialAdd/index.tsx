@@ -63,7 +63,7 @@ export default function AdminRedeSocialAdd(props: RedesocialAdd): JSX.Element {
                 api
                   .post(`/redesocial`, getIcon, {
                     headers: {
-                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                       'Content-Type': 'multipart/form-data',
                     },
                   })

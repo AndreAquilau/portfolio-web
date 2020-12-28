@@ -39,7 +39,7 @@ export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
                       { titulo: getProjetos[index].titulo },
                       {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                         },
                       },
                     )
@@ -61,7 +61,9 @@ export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
                   api
                     .delete(`/projeto/?id=${getProjetos[index].id}`, {
                       headers: {
-                        Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                        Authorization: JSON.parse(
+                          localStorage.getItem('tokenPortfolio') || '{"tokenPortfolio": false}',
+                        ),
                       },
                     })
                     .then((res) => {
@@ -106,7 +108,9 @@ export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
                         { projeto: getProjetos[index].descProjeto },
                         {
                           headers: {
-                            Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                            Authorization: JSON.parse(
+                              localStorage.getItem('tokenPortfolio') || '{"tokenPortfolio": false}',
+                            ),
                           },
                         },
                       )
@@ -153,7 +157,9 @@ export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
                       { linkGithub: getProjetos[index].linkGithub },
                       {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                          Authorization: JSON.parse(
+                            localStorage.getItem('tokenPortfolio') || '{"tokenPortfolio": false}',
+                          ),
                         },
                       },
                     )
@@ -199,7 +205,9 @@ export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
                       { linkProjeto: getProjetos[index].linkProjeto },
                       {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                          Authorization: JSON.parse(
+                            localStorage.getItem('tokenPortfolio') || '{"tokenPortfolio": false}',
+                          ),
                         },
                       },
                     )

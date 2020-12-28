@@ -53,7 +53,7 @@ export default function AdminFormacaoAdd(props: FormacaoAPI) {
                         { descFormacao: getFormacao?.descFormacao, instituicao: getFormacao?.instituicao },
                         {
                           headers: {
-                            Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                            Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                           },
                         },
                       )

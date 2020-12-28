@@ -48,7 +48,7 @@ export default function AdminProjetoAdd(props: AdminProjetoAddInterface): JSX.El
                       },
                       {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || ''),
+                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
                         },
                       },
                     )
