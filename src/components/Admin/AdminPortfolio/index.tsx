@@ -19,6 +19,8 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
     setTitulo(props.portfolio?.titulo || '');
     setSubtitulo(props.portfolio?.subtitulo || '');
     setSobre(props.portfolio?.sobre || '');
+    setPhoto(props.portfolio?.photo || '');
+    setDocument(props.portfolio?.uploadDocSobre || '');
   }, [props.portfolio]);
   return (
     <Container className="about-admin">
@@ -54,7 +56,9 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
                 api
                   .put(`/portfolio/photo/?id=${props.portfolio?.id}`, getPhoto, {
                     headers: {
-                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                      Authorization: JSON.parse(
+                        localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                      ),
                       'Content-Type': 'multipart/form-data',
                     },
                   })
@@ -98,7 +102,9 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
                     { titulo: getTitulo },
                     {
                       headers: {
-                        Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                        Authorization: JSON.parse(
+                          localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                        ),
                       },
                     },
                   )
@@ -142,7 +148,9 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
                     { subtitulo: getSubtitulo },
                     {
                       headers: {
-                        Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                        Authorization: JSON.parse(
+                          localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                        ),
                       },
                     },
                   )
@@ -187,7 +195,9 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
                       { sobre: getSobre },
                       {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                          Authorization: JSON.parse(
+                            localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                          ),
                         },
                       },
                     )
@@ -237,7 +247,9 @@ export default function AdminPortfolio(props: PortfolioAPI): JSX.Element {
                     api
                       .put(`/portfolio/document/?id=${props.portfolio?.id}`, getDocument, {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                          Authorization: JSON.parse(
+                            localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                          ),
                           'Content-Type': 'multipart/form-data',
                         },
                       })

@@ -10,7 +10,7 @@ interface AdminProjetoAddInterface extends Props<any> {
 
 export default function AdminProjetoAdd(props: AdminProjetoAddInterface): JSX.Element {
   const [getProjetos, setProjetos]: [Projeto | undefined, (param: any) => any] = useState();
-  const token = process.env.TOKEN;
+
   return (
     <Container id="sec3">
       <h1>
@@ -48,7 +48,9 @@ export default function AdminProjetoAdd(props: AdminProjetoAddInterface): JSX.El
                       },
                       {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                          Authorization: JSON.parse(
+                            localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                          ),
                         },
                       },
                     )

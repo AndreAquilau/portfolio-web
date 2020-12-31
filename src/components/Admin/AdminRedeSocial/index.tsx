@@ -9,7 +9,7 @@ export default function AdminRedeSocial(props: RedeSocialAPI): JSX.Element {
   const [getIcon, setIcon]: any = useState();
   const [getTypeIcon, setTypeIcon] = useState();
   const [getLinks, setLinks]: [Redesocial[] | undefined, (param: any) => any] = useState(props.redesociais);
-  const token = process.env.TOKEN;
+
   useEffect(() => {
     setLinks(props.redesociais);
   }, [props.redesociais, getIcon]);
@@ -65,7 +65,9 @@ export default function AdminRedeSocial(props: RedeSocialAPI): JSX.Element {
                 api
                   .put(`/redesocial/icon/?id=${object.id}`, getIcon, {
                     headers: {
-                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                      Authorization: JSON.parse(
+                        localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                      ),
                       'Content-Type': 'multipart/form-data',
                     },
                   })
@@ -82,7 +84,9 @@ export default function AdminRedeSocial(props: RedeSocialAPI): JSX.Element {
                     { link: getLinks[index].link },
                     {
                       headers: {
-                        Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                        Authorization: JSON.parse(
+                          localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                        ),
                       },
                     },
                   )
@@ -106,7 +110,9 @@ export default function AdminRedeSocial(props: RedeSocialAPI): JSX.Element {
                 api
                   .delete(`/redesocial/?id=${object.id}`, {
                     headers: {
-                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                      Authorization: JSON.parse(
+                        localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                      ),
                       'Content-Type': 'multipart/form-data',
                     },
                   })

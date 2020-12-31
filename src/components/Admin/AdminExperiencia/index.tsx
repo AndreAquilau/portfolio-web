@@ -44,7 +44,9 @@ export default function AdminExperiencia(props: ExperienciaAPI): JSX.Element {
                       { descExperiencia: getExperiencia?.descExperiencia },
                       {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                          Authorization: JSON.parse(
+                            localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                          ),
                         },
                       },
                     )

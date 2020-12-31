@@ -7,7 +7,7 @@ import { Container } from './styles';
 
 export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
   const [getProjetos, setProjetos]: [Pj[] | undefined, (args?: any[]) => any] = useState();
-  const token = process.env.TOKEN;
+
   useEffect(() => {
     setProjetos(props.projetos);
   }, [getProjetos, props.projetos]);
@@ -39,7 +39,9 @@ export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
                       { titulo: getProjetos[index].titulo },
                       {
                         headers: {
-                          Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                          Authorization: JSON.parse(
+                            localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                          ),
                         },
                       },
                     )
@@ -62,7 +64,7 @@ export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
                     .delete(`/projeto/?id=${getProjetos[index].id}`, {
                       headers: {
                         Authorization: JSON.parse(
-                          localStorage.getItem('tokenPortfolio') || '{"tokenPortfolio": false}',
+                          localStorage.getItem(process.env.REACT_APP_BASE_URL || '') || '"false"',
                         ),
                       },
                     })
@@ -109,7 +111,7 @@ export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
                         {
                           headers: {
                             Authorization: JSON.parse(
-                              localStorage.getItem('tokenPortfolio') || '{"tokenPortfolio": false}',
+                              localStorage.getItem(process.env.REACT_APP_BASE_URL || '') || '"false"',
                             ),
                           },
                         },
@@ -158,7 +160,7 @@ export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
                       {
                         headers: {
                           Authorization: JSON.parse(
-                            localStorage.getItem('tokenPortfolio') || '{"tokenPortfolio": false}',
+                            localStorage.getItem(process.env.REACT_APP_BASE_URL || '') || '"false"',
                           ),
                         },
                       },
@@ -206,7 +208,7 @@ export default function AdminProjeto(props: ProjetoAPI): JSX.Element {
                       {
                         headers: {
                           Authorization: JSON.parse(
-                            localStorage.getItem('tokenPortfolio') || '{"tokenPortfolio": false}',
+                            localStorage.getItem(process.env.REACT_APP_BASE_URL || '') || '"false"',
                           ),
                         },
                       },

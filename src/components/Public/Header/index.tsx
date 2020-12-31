@@ -22,16 +22,16 @@ export default function Header(): JSX.Element {
           <li>
             <Link to="/contato">Contato</Link>
           </li>
-          { JSON.parse(localStorage.getItem('tokenPortfolio') || '') &&
+          { JSON.parse(localStorage.getItem(String(process.env.REACT_APP_BASE_URL)) || '') &&
           <li>
             <Link to="/painelcontroll">Settings</Link>
           </li>
           }
           <li>
             {
-              JSON.parse(localStorage.getItem('tokenPortfolio') || '{"tokenPortfolio": false}') ?
+              JSON.parse(localStorage.getItem(String(process.env.REACT_APP_BASE_URL)) || '"false"') ?
               <Link to="/login" onClick={(e) => {
-                localStorage.setItem('tokenPortfolio', JSON.stringify(false));
+                localStorage.setItem(String(process.env.REACT_APP_BASE_URL), JSON.stringify(false));
               }}>Logout</Link> : <Link to="/login">Login</Link>}
           </li>
         </ul>

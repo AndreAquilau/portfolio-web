@@ -7,7 +7,6 @@ import { Container } from './styles';
 
 export default function AdminFormacaoAdd(props: FormacaoAPI) {
   const [getFormacao, setFormacao]: [Formacao | undefined, (param: any) => any] = useState();
-  const token = process.env.TOKEN;
 
   return (
     <Container id="sec1">
@@ -53,7 +52,9 @@ export default function AdminFormacaoAdd(props: FormacaoAPI) {
                         { descFormacao: getFormacao?.descFormacao, instituicao: getFormacao?.instituicao },
                         {
                           headers: {
-                            Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                            Authorization: JSON.parse(
+                              localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                            ),
                           },
                         },
                       )

@@ -13,7 +13,6 @@ export default function AdminRedeSocialAdd(props: RedesocialAdd): JSX.Element {
   const [getTypeIcon, setTypeIcon] = useState();
   const [getFileName, setFileName]: any = useState();
   const [getLink, setLink]: [Redesocial | undefined, (param: any) => any] = useState();
-  const token = process.env.TOKEN;
 
   return (
     <Container className="redesocial">
@@ -63,7 +62,9 @@ export default function AdminRedeSocialAdd(props: RedesocialAdd): JSX.Element {
                 api
                   .post(`/redesocial`, getIcon, {
                     headers: {
-                      Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                      Authorization: JSON.parse(
+                        localStorage.getItem(String(process.env.REACT_APP_BASE_URL)) || 'false',
+                      ),
                       'Content-Type': 'multipart/form-data',
                     },
                   })

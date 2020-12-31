@@ -82,7 +82,9 @@ export default function PainelControll(): JSX.Element {
 
   return (
     <>
-      {!JSON.parse(localStorage.getItem('tokenPortfolio') || 'false') && <Redirect to="/login"></Redirect>}
+      {!JSON.parse(localStorage.getItem(String(process.env.REACT_APP_BASE_URL)) || 'false') && (
+        <Redirect to="/login"></Redirect>
+      )}
       <Container>
         <Header></Header>
         <SectionAdmin>

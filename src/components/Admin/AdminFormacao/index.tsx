@@ -8,7 +8,7 @@ import { Container } from './styles';
 
 export default function AdminFormacao(props: FormacaoAPI) {
   const [getFormacoes, setFormacoes]: [Formacao[] | undefined, (param: any) => any] = useState();
-  const token = process.env.TOKEN;
+
   useEffect(() => {
     setFormacoes(props.formacaos);
   }, [props.formacaos, getFormacoes]);
@@ -42,7 +42,9 @@ export default function AdminFormacao(props: FormacaoAPI) {
                           { descFormacao: getFormacoes[index].descFormacao },
                           {
                             headers: {
-                              Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                              Authorization: JSON.parse(
+                                localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                              ),
                             },
                           },
                         )
@@ -81,7 +83,9 @@ export default function AdminFormacao(props: FormacaoAPI) {
                           { instituicao: getFormacoes[index].instituicao },
                           {
                             headers: {
-                              Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                              Authorization: JSON.parse(
+                                localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                              ),
                             },
                           },
                         )
@@ -104,7 +108,9 @@ export default function AdminFormacao(props: FormacaoAPI) {
                       api
                         .delete(`/formacao/?id=${getFormacoes[index].id}`, {
                           headers: {
-                            Authorization: JSON.parse(localStorage.getItem('tokenPortfolio') || 'false'),
+                            Authorization: JSON.parse(
+                              localStorage.getItem(String(process.env.REACT_APP_BASE_URL) || '') || 'false',
+                            ),
                           },
                         })
                         .then((res) => {
